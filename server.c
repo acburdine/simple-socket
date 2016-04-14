@@ -15,6 +15,8 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 int serverFd;
 
@@ -32,7 +34,7 @@ int socket_setup(int port) {
         printError("Error on socket open");
     }
 
-    bzero((char *) &serverAddr, sizeof(serverAddr));
+    memset((char *) &serverAddr, 0, sizeof(serverAddr));
 
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = INADDR_ANY;
@@ -47,12 +49,13 @@ int socket_setup(int port) {
     return serverFd;
 }
 
-void socket_listen(void (*fn)(int *)) {
-    int clientLen, clientFd;
+void socket_listen(void (*fn)(int)) {
+    int clientFd;
+    socklen_t clientLen;
     struct sockaddr_in clientAddr;
     struct sockaddr* clientAddress;
 
-    clientAddress - (struct sockaddr*) &clientAddr;
+    clientAddress = (struct sockaddr*) &clientAddr;
     clientLen = sizeof (clientAddr);    
 
     while(1) {

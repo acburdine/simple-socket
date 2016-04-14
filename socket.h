@@ -8,4 +8,4 @@
  ****************************************************************************/
 
 int socket_setup(int port);
-void socket_listen(void (*fn)(int *));
+void socket_listen(void (*fn)(int));
