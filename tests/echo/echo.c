@@ -9,8 +9,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "echo.h"
+#include "../../client.h"
 
 int main(int argc, char **argv) {
+
+	char *hostname;
+	int port;
+
 	if (argc == 1) {
 		hostname = "localhost";
 		port = 7;
@@ -25,6 +34,9 @@ int main(int argc, char **argv) {
 	}
 
 	/* configure socket stuff */
+
+
+	char buffer[BUFSIZE];
 
 	/* loop until ctrl-c */
 	while (1) {

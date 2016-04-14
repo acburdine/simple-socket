@@ -9,19 +9,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
-#include "../../socket.h"
+#include "../../server.h"
 #include "echod.h"
 
 /* let's do this */
 int main() {
 	/* set up a server socket */
-	socket_setup(7);
+	server_setup(23457);
 
 	/* loop until ctrl-c */
 	while (1) {
-		socket_listen(echo());
+		server_listen(&echo);
 	}
 
 	/* we should never, ever, ever get here */
@@ -36,7 +37,8 @@ void echo(int fd) {
 	
 	/* read in one line, dyanically allocating the space */
 	while(read(fd, buffer, BUFSIZE) != 0) {
-		write(fd, buffer, strlen(buffer) + 1);
+		printf("%s", buffer);
+		write(fd, buffer, strlen(buffer));
 	}
 	
 }

@@ -11,16 +11,16 @@ CFLAGS=-c -Wall
 echo: echo-client echod
 
 echo-client: echo.o
-	$(CC) -o echo echo.o
+	$(CC) -o echo echo.o client.o
 
 echod: echod.o
-	$(CC) -o echod echod.o
+	$(CC) -o echod echod.o server.o
 
 echo.o: echo.c echo.h
-	$(CC) $(CFLAGS) echo.c ../../socket.c
+	$(CC) $(CFLAGS) echo.c
 
 echod.o: echod.c echod.h
-	$(CC) $(CFLAGS) echod.c ../../socket.c
+	$(CC) $(CFLAGS) echod.c
 
 clean: 
 	rm *.o echo echod
