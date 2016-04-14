@@ -1,5 +1,5 @@
 /****************************************************************************
- *		   socket.h => Header file for the socket functionality     *
+ *		   client.h  => client header stuff         	            *
  *                                                                          *
  * Assignment: Lab 10 - IPC sockets                                         *
  * Author: Nathanael Smith and Austin Burdine                               *
@@ -7,5 +7,4 @@
  *                                                                          *
  ****************************************************************************/
 
-int socket_setup(int port);
-void socket_listen(void (*fn)(int));
+int client_setup(char *host, int port);
