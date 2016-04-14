@@ -17,10 +17,10 @@ echod: echod.o
 	$(CC) -o echod echod.o
 
 echo.o: echo.c echo.h
-	$(CC) $(CFLAGS) echo.c ../../sockets/sockets.c
+	$(CC) $(CFLAGS) echo.c ../../socket.c
 
 echod.o: echod.c echod.h
-	$(CC) $(CFLAGS) echod.c ../../sockets/sockets.c
+	$(CC) $(CFLAGS) echod.c ../../socket.c
 
 clean: 
 	rm *.o echo echod

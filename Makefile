@@ -21,3 +21,7 @@ socket.o: socket.c socket.h
 
 tests:
 	$(MAKE) -C $(TESTS_DIR)
+
+clean:
+	rm *.o 
+	$(MAKE) -C $(TESTS_DIR) clean
