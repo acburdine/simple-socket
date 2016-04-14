@@ -1,5 +1,5 @@
 # Makefile for a simple echo server
-# modeled by Nathanael A. Smith after Dr. Vail's Makefile
+# modeled by Nathanael A. Smith/Austin Burdine after Dr. Vail's Makefile
 # also modeled after an example at http://mrbook.org/blog/tutorials/make
 
 
