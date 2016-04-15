@@ -12,12 +12,18 @@ TESTS_DIR = tests
 
 .PHONY: tests
 
-all: sockets tests
+all: server.o client.o tests
 
-sockets: socket.o 
+server.o: server.c server.h
+	$(CC) $(CFLAGS) server.c
 
-socket.o: socket.c socket.h
-	$(CC) $(CFLAGS) socket.c
+client.o: client.c client.h
+	$(CC) $(CFLAGS) client.c
+
 
 tests:
 	$(MAKE) -C $(TESTS_DIR)
+
+clean:
+	rm *.o 
+	$(MAKE) -C $(TESTS_DIR) clean
