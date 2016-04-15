@@ -1,6 +1,8 @@
 /****************************************************************************
  *		   client.c  => client socket abstraction         	    *
  *                                                                          *
+ * Borrowed from example at http://www.linuxhowtos.org/C_C++/socket.htm     *
+ *                                                                          *
  * Assignment: Lab 10 - IPC sockets                                         *
  * Author: Nathanael Smith and Austin Burdine                               *
  * Computer: W002-13 and Macbook                                            *
