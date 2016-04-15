@@ -14,10 +14,10 @@ TESTS_DIR = tests
 
 all: server.o client.o tests
 
-server.o: server.c socket.h
+server.o: server.c server.h
 	$(CC) $(CFLAGS) server.c
 
-client.o: client.c socket.h
+client.o: client.c client.h
 	$(CC) $(CFLAGS) client.c
 
 

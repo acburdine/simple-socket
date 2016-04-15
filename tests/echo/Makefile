@@ -8,13 +8,13 @@ CC=gcc
 # the C compiler flags
 CFLAGS=-c -Wall
 
-echo: echo-client echod
+all: echo echod
 
-echo-client: echo.o
-	$(CC) -o echo echo.o client.o
+echo: echo.o
+	$(CC) -o echo echo.o ../../client.o
 
 echod: echod.o
-	$(CC) -o echod echod.o server.o
+	$(CC) -o echod echod.o ../../server.o
 
 echo.o: echo.c echo.h
 	$(CC) $(CFLAGS) echo.c

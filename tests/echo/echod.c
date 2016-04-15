@@ -21,9 +21,7 @@ int main() {
 	server_setup(23457);
 
 	/* loop until ctrl-c */
-	while (1) {
-		server_listen(&echo);
-	}
+	server_listen(&echo);
 
 	/* we should never, ever, ever get here */
 	exit(1);
@@ -31,14 +29,11 @@ int main() {
 
 /* echo the input to output */
 void echo(int fd) {
-	/* the line buffer and line string */
 	char buffer[BUFSIZE];
-	char *line = NULL;
 	
-	/* read in one line, dyanically allocating the space */
-	while(read(fd, buffer, BUFSIZE) != 0) {
-		printf("%s", buffer);
+	while (read(fd, buffer, BUFSIZE)) {
+		printf("%s\n", buffer);
 		write(fd, buffer, strlen(buffer));
+		memset(buffer, 0, BUFSIZE);
 	}
-	
 }
