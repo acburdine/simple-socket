@@ -36,3 +36,6 @@ echo echod
 
 # vim swap files
 *.swp
+
+# .tar files
+*.tar

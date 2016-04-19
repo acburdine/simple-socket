@@ -7,3 +7,5 @@ To run a simple echo server:
 - execute echod in one terminal and echo in another
 - have fun echoing stuff.
 Use ctrl-c to kill server or client.
+
+For more informatio, see the README.md file in the tests/echo directory.
