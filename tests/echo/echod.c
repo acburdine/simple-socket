@@ -17,23 +17,23 @@
 
 /* let's do this */
 int main() {
-	/* set up a server socket */
-	server_setup(23457);
+    /* set up a server socket */
+    server_setup(23457);
 
-	/* loop until ctrl-c */
-	server_listen(&echo);
+    /* loop until ctrl-c */
+    server_listen(&echo);
 
-	/* we should never, ever, ever get here */
-	exit(1);
+    /* we should never, ever, ever get here */
+    exit(1);
 }
 
 /* echo the input to output */
 void echo(int fd) {
-	char buffer[BUFSIZE];
-	
-	while (read(fd, buffer, BUFSIZE)) {
-		printf("%s\n", buffer);
-		write(fd, buffer, strlen(buffer));
-		memset(buffer, 0, BUFSIZE);
-	}
+    char buffer[BUFSIZE];
+    
+    while (read(fd, buffer, BUFSIZE)) {
+        printf("%s\n", buffer);
+        write(fd, buffer, strlen(buffer));
+        memset(buffer, 0, BUFSIZE);
+    }
 }

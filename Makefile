@@ -15,15 +15,15 @@ TESTS_DIR = tests
 all: server.o client.o tests
 
 server.o: server.c server.h
-	$(CC) $(CFLAGS) server.c
+    $(CC) $(CFLAGS) server.c
 
 client.o: client.c client.h
-	$(CC) $(CFLAGS) client.c
+    $(CC) $(CFLAGS) client.c
 
 
 tests:
-	$(MAKE) -C $(TESTS_DIR)
+    $(MAKE) -C $(TESTS_DIR)
 
 clean:
-	rm *.o 
-	$(MAKE) -C $(TESTS_DIR) clean
+    rm *.o 
+    $(MAKE) -C $(TESTS_DIR) clean
