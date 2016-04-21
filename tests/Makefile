@@ -14,7 +14,7 @@ ECHO_DIR = echo
 .PHONY: clean
 
 echo: 
-    $(MAKE) -C $(ECHO_DIR)
+	$(MAKE) -C $(ECHO_DIR)
 
 clean: 
-    $(MAKE) -C $(ECHO_DIR) clean
+	$(MAKE) -C $(ECHO_DIR) clean
