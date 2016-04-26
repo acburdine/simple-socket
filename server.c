@@ -64,10 +64,15 @@ void server_listen(void (*fn)(int)) {
         clientFd = accept(serverFd, clientAddress, &clientLen);
 
         if (fork() == 0) {
-            fn(clientFd);
+            if (fork() == 0) {
+                fn(clientFd);
+                close(clientFd);
+                exit(0);
+            }
             close(clientFd);
             exit(0);
         } else {
+            wait();
             close(clientFd);
         }
     }
