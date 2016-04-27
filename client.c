@@ -19,11 +19,13 @@
 #include <netinet/in.h>
 #include <netdb.h>
 
+/* printf an error message and exits */
 void printError(const char *msg) {
     perror(msg);
     exit(1);
 }
 
+/* handles the client setup */
 int client_setup(char *host, int port) {
     int serverFd;
     struct sockaddr_in serverAddr;
@@ -35,6 +37,7 @@ int client_setup(char *host, int port) {
         printError("Error on socket open");
     }
 
+    /* resolv the host to a server struct */
     server = gethostbyname(host);
 
     if (server == NULL) {
@@ -48,6 +51,7 @@ int client_setup(char *host, int port) {
 
     strcpy((char *) &serverAddr.sin_addr.s_addr, (char *) server->h_addr);
 
+    /* try to connect to the server */
     if (connect(serverFd, (struct sockaddr *) &serverAddr, sizeof(serverAddr)) < 0) {
         printError("Error connecting");
     }
