@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -64,10 +65,15 @@ void server_listen(void (*fn)(int)) {
         clientFd = accept(serverFd, clientAddress, &clientLen);
 
         if (fork() == 0) {
-            fn(clientFd);
+            if (fork() == 0) {
+                fn(clientFd);
+                close(clientFd);
+                exit(0);
+            }
             close(clientFd);
             exit(0);
         } else {
+            wait(NULL);
             close(clientFd);
         }
     }
