@@ -15,6 +15,7 @@
 #include "echo.h"
 #include "../../client.h"
 
+/* our main function */
 int main(int argc, char **argv) {
 
     char *hostname;
